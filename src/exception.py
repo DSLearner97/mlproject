@@ -2,6 +2,8 @@ import sys
 import logging
 import os
 from datetime import datetime
+from src.logger import logging
+
 
 # Configure logging
 LOG_FILE = f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
@@ -30,11 +32,4 @@ class CustomException(Exception):
 
     def __str__(self):
         return self.error_message
-
-if __name__ == "__main__":
-    try:
-        a = 1 / 0  # This will cause a division by zero error
-    except Exception as e:
-        logging.info("Divide by Zero error")
-        raise CustomException(e, sys)
 
